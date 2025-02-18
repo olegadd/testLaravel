@@ -94,4 +94,6 @@ Route::get('/post/{id}', [PostController::class, 'show']);
 
 Route::get('/pages/show', [PageController::class, 'showOne']);
 
+Route::get('/pages/all', [PageController::class, 'showAll']);
+
 Route::get('/pages/show/{id}', [PageController::class, 'showOneMod']);
