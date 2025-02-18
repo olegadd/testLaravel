@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\CityController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\PostController;
 use App\Http\Middleware\CheckSecretParam;
 use App\Http\Middleware\PageVisitCounter;
 use Illuminate\Support\Facades\Route;
@@ -86,3 +89,9 @@ Route::get('/visit-count', function () {
 
     return $visitCount;
 })->middleware(PageVisitCounter::class);
+
+Route::get('/post/{id}', [PostController::class, 'show']);
+
+Route::get('/pages/show', [PageController::class, 'showOne']);
+
+Route::get('/pages/show/{id}', [PageController::class, 'showOneMod']);
