@@ -64,3 +64,19 @@ Route::get('/{year}/{month}/{day}', function ($year, $month, $day) {
     'month' => '0[1-9]|1[0-2]',
     'day' => '0[1-9]|[12]\d|3[01]'
 ]);
+
+Route::get('/users/{username}', function ($username) {
+    $users = [
+        'user1' => 'city1',
+        'user2' => 'city2',
+        'user3' => 'city3',
+        'user4' => 'city4',
+        'user5' => 'city5'
+    ];
+
+    if (!isset($users[$username])) {
+        return "Пользователь '{$username}' не найден";
+    }
+
+    return $users[$username];
+});
