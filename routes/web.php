@@ -1,9 +1,9 @@
 <?php
 
 use App\Http\Middleware\CheckSecretParam;
+use App\Http\Middleware\PageVisitCounter;
 use Illuminate\Support\Facades\Route;
-
-
+use Illuminate\Support\Facades\Session;
 
 Route::prefix('blog')->group(function () {
     Route::get('/post/all', function () {
@@ -80,3 +80,9 @@ Route::get('/users/{username}', function ($username) {
 
     return $users[$username];
 });
+
+Route::get('/visit-count', function () {
+    $visitCount = Session::get('page_visit_count', 0);
+
+    return $visitCount;
+})->middleware(PageVisitCounter::class);
