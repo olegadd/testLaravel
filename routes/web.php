@@ -3,6 +3,8 @@
 use App\Http\Middleware\CheckSecretParam;
 use Illuminate\Support\Facades\Route;
 
+
+
 Route::prefix('blog')->group(function () {
     Route::get('/post/all', function () {
         return 'all';
@@ -24,3 +26,41 @@ Route::get('/secret-page', function () {
 Route::get('/user/{id?}/', function ($id = 0) {
     return "User id: $id";
 });
+
+
+Route::get('/{year}/{month}/{day}', function ($year, $month, $day) {
+    if (
+        !preg_match('/^\d{4}$/', $year) ||
+        !preg_match('/^(0[1-9]|1[0-2])$/', $month) ||
+        !preg_match('/^(0[1-9]|[12]\d|3[01])$/', $day)
+    ) {
+        abort(400, 'Некорректный формат даты');
+    }
+
+    $y = (int)$year;
+    $m = (int)$month;
+    $d = (int)$day;
+
+    if (!checkdate($m, $d, $y)) {
+        abort(400, 'Такой даты не существует');
+    }
+
+    $timestamp = mktime(0, 0, 0, $m, $d, $y);
+    $dayOfWeek = date('w', $timestamp);
+
+    $days = [
+        'Воскресенье',
+        'Понедельник',
+        'Вторник',
+        'Среда',
+        'Четверг',
+        'Пятница',
+        'Суббота'
+    ];
+
+    return $days[$dayOfWeek];
+})->where([
+    'year' => '\d{4}',
+    'month' => '0[1-9]|1[0-2]',
+    'day' => '0[1-9]|[12]\d|3[01]'
+]);
