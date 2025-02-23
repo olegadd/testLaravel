@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\LinksController;
 use App\Http\Controllers\NewPostController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
@@ -106,3 +107,4 @@ Route::get('/index', function () {
 Route::get('/', [NewPostController::class, 'home'])->name('home');
 Route::get('/about', [NewPostController::class, 'about'])->name('about');
 Route::get('/contact', [NewPostController::class, 'contact'])->name('contact');
+Route::get('/links', [LinksController::class, 'links'])->name('links');

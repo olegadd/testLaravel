@@ -8,4 +8,6 @@ class PostController extends Controller
     {
         return view('post.test', ['name' => $name, 'surname' => $surname]);
     }
+
+    
 }
