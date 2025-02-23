@@ -6,17 +6,7 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    public function showOne()
-    {
-        return "Работа функции showOne";
-    }
-
-    public function showAll()
-    {
-        return "Показ всех страниц через функцию showAll";
-    }
-
-    public function showOneMod($id)
+    public function showOne($id)
     {
         $pages = [
             1 => 'страница 1',
@@ -29,5 +19,12 @@ class PageController extends Controller
         if (!isset($pages[$id])) {
             return "Страница с номером {$id} не найдена";
         }
+
+        return $pages[$id];
+    }
+
+    public function showAll()
+    {
+        return "Показ всех страниц через функцию showAll";
     }
 }

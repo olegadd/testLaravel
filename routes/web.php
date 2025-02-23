@@ -90,10 +90,8 @@ Route::get('/visit-count', function () {
     return $visitCount;
 })->middleware(PageVisitCounter::class);
 
-Route::get('/post/{id}', [PostController::class, 'show']);
+Route::get('/post/{name}/{surname}', [PostController::class, 'show']);
 
-Route::get('/pages/show', [PageController::class, 'showOne']);
+Route::get('/pages/show/{id}', [PageController::class, 'showOne']);
 
 Route::get('/pages/all', [PageController::class, 'showAll']);
-
-Route::get('/pages/show/{id}', [PageController::class, 'showOneMod']);
