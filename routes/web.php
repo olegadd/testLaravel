@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\NewPostController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
 use App\Http\Middleware\CheckSecretParam;
@@ -95,3 +96,13 @@ Route::get('/post/{name}/{surname}', [PostController::class, 'show']);
 Route::get('/pages/show/{id}', [PageController::class, 'showOne']);
 
 Route::get('/pages/all', [PageController::class, 'showAll']);
+
+Route::get('/show', [NewPostController::class, 'index']);
+
+Route::get('/index', function () {
+    return view('child');
+});
+
+Route::get('/', [NewPostController::class, 'home'])->name('home');
+Route::get('/about', [NewPostController::class, 'about'])->name('about');
+Route::get('/contact', [NewPostController::class, 'contact'])->name('contact');
