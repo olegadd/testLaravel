@@ -12,9 +12,8 @@
     </style>
 </head>
 <body>
-    <div class="container mt-5">
         <h1>Список пользователей</h1>
-        <table class="table table-bordered">
+        <table>
             <th>
                 <tr>
                     <th>#</th>
@@ -34,6 +33,5 @@
                 @endforeach
             </tbody>
         </table>
-    </div>
 </body>
 </html>
