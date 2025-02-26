@@ -5,6 +5,7 @@ use App\Http\Controllers\LinksController;
 use App\Http\Controllers\NewPostController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UsersController;
 use App\Http\Middleware\CheckSecretParam;
 use App\Http\Middleware\PageVisitCounter;
 use Illuminate\Support\Facades\Route;
@@ -108,3 +109,5 @@ Route::get('/', [NewPostController::class, 'home'])->name('home');
 Route::get('/about', [NewPostController::class, 'about'])->name('about');
 Route::get('/contact', [NewPostController::class, 'contact'])->name('contact');
 Route::get('/links', [LinksController::class, 'links'])->name('links');
+
+Route::get('/users', [UsersController::class, 'users'])->name('users');
