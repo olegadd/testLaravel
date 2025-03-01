@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DarkThemeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -9,3 +10,5 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::get('/user', [UserController::class, 'show']);
+
+Route::post('/dark', [DarkThemeController::class, 'show']);
