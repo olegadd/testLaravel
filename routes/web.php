@@ -114,6 +114,3 @@ Route::get('/contact', [NewPostController::class, 'contact'])->name('contact');
 Route::get('/links', [LinksController::class, 'links'])->name('links');
 
 Route::get('/users', [UsersController::class, 'users'])->name('users');
-
-
-Route::get('/user', [UserController::class, 'show']);
