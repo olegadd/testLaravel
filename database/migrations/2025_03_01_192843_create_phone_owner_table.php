@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('phones', function (Blueprint $table) {
-            $table->foreignId('id_tel')->references('id_tel')->on('phone_owner')->onDelete('cascade');
-            $table->integer('phone_number');
-            $table->string('type', 20);
-
+        Schema::create('phone_owner', function (Blueprint $table) {
+            $table->id('tel_id');
+            $table->string('id_pp', 20)->unique();
 
             $table->timestamps();
         });
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('phones');
+        Schema::dropIfExists('phone_owner');
     }
 };

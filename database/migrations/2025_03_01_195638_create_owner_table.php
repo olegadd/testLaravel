@@ -12,8 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('owner', function (Blueprint $table) {
-            $table->foreignId('id_p')->references('id_p')->on('phone_owner')->onDelete('cascade');
-            $table->foreignId('id_p')->references('id_p')->on('address_owner')->onDelete('cascade');
+            $table->string('id_pp', 20)->nullable();
+            $table->string('id_p', 20)->nullable();
+            $table->foreign('id_pp')->references('id_pp')->on('phone_owner')->onDelete('cascade');
+            $table->foreign('id_p')->references('id_p')->on('address_owner')->onDelete('cascade');
             $table->string('FIO', 50);
             $table->date('birthday');
 
