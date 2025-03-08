@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('phones', function (Blueprint $table) {
             $table->foreignId('id_tel')->references('id_tel')->on('phone_owner')->onDelete('cascade');
-            $table->string('phone_number', 10);
+            $table->integer('phone_number');
             $table->string('type', 20);
 
 

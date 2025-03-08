@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('address_owner', function (Blueprint $table) {
             $table->id('id_a');
-            $table->string('id_p', 15);
+            $table->id('id_p');
 
 
 

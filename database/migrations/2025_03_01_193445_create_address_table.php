@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('address', function (Blueprint $table) {
             $table->foreignId('id_a')->references('id_a')->on('address_owner')->onDelete('cascade');
-            $table->string('country', 50);
-            $table->string('city', 50);
-            $table->string('street', 100);
-            $table->string('house', 10);
+            $table->string('country', 20);
+            $table->string('city', 20);
+            $table->string('street', 30);
+            $table->integer('house');
             $table->string('building', 10);
-            $table->string('appartment', 10);
+            $table->integer('appartment');
 
             $table->timestamps();
         });

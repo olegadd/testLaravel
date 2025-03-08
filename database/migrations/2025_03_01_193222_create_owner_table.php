@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('owner', function (Blueprint $table) {
             $table->foreignId('id_p')->references('id_p')->on('phone_owner')->onDelete('cascade');
             $table->foreignId('id_p')->references('id_p')->on('address_owner')->onDelete('cascade');
-            $table->string('FIO', 100);
+            $table->string('FIO', 50);
             $table->date('birthday');
 
             $table->timestamps();
