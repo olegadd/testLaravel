@@ -23,7 +23,7 @@ class PostsTableSeeder extends Seeder
                 'title' => 'title',
                 'slug' => Str::slug($title),
                 'likes' => $faker->numberBetween(0, 1000),
-                'user_id' => $faker->numberBetween(1, 20),
+                'user_id' => $faker->numberBetween(1, 10),
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
